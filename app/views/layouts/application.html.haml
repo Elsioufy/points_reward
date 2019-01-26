@@ -1,0 +1,19 @@
+%html
+  %head
+    %title Clarkreward
+    %meta{content: "user-scalable=yes, initial-scale=1, maximum-scale=8, user-scalable=yes, minimum-scale=0.5, width=device-width, height=device-height", name: "viewport" }/
+    %meta{charset: "utf-8"}
+    %meta{name: 'robots', content: 'all,follow'}
+    %meta{name: 'googlebot', content: ''}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{name: 'description', content: ''}
+    %meta{name: 'keywords', content: ''}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = csrf_meta_tags
+    = csp_meta_tag
+  %body
+    = render 'layouts/header'
+    = yield
+    = render 'layouts/footer'
+
