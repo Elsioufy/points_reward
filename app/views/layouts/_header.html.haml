@@ -1,0 +1,11 @@
+// Header HTML
+.navbar.navbar-clarkreward
+  .navbar-header
+    .navbar-buttons
+      %button.navbar-toggle.navbar-light{type: 'button', "data-toggle" => 'collapse', "data-target" => "#navbar_content"}
+        %span.sr-only
+          Toggle navigation
+        %i.fa.fa-align-justify
+    %ul.nav.navbar-nav.navbar-right
+      %li.nav-item.dropdown
+        = link_to('Logout', destroy_user_session_path, method: :delete)
