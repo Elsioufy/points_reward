@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_210539) do
+ActiveRecord::Schema.define(version: 2019_01_26_233407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 2019_01_26_210539) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.bigint "inviter_user_id"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "inviter_user_id"
     t.index ["inviter_user_id"], name: "index_invitations_on_inviter_user_id"
   end
 
@@ -83,9 +83,11 @@ ActiveRecord::Schema.define(version: 2019_01_26_210539) do
     t.datetime "updated_at", null: false
     t.integer "sash_id"
     t.integer "level", default: 0
+    t.integer "parent_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "invitations", "invitations", column: "inviter_user_id"
+  add_foreign_key "invitations", "users", column: "inviter_user_id"
+  add_foreign_key "users", "users", column: "parent_id"
 end
