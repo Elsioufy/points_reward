@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # Adding and creating new invitation route
   resources :invitations, only: [:new, :create]
   # getting users scores route
-  resources :users, only: [:import, :scores] do
+  resources :users, only: [:import, :new_import] do
     collection do
-      get 'scores'
+      get 'new_import'
       post 'import'
     end
   end

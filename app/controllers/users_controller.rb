@@ -1,9 +1,9 @@
 # Our User Conroller, used to get users scores, ..etc
-class UsersController < ApplicationController
+class UsersController < ActionController::Base
   require 'csv'
   # GET /users/scores
   # This action is used to get users scores based on import
-  def scores
+  def new_import
   end
   # POST /users/import
   # This import list of user names to get their scores

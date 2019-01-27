@@ -1,6 +1,6 @@
 = form_tag({action: :import}, multipart: true) do
   .form-group.required
-    = label_tag :file, {class: "control-label"}
+    = label_tag :file
     = file_field_tag 'file'
   .form-actions.clearfix.m-t-lg
     .pull-right
