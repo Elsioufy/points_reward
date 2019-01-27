@@ -25,6 +25,13 @@ gem 'devise', '~> 4.2'
 # Reputation engine for Rails apps
 gem 'merit'
 
+# Official Sass port of Bootstrap 2 and 3.
+gem 'bootstrap-sass', '~> 3.4.0'
+gem 'sassc-rails', '>= 2.0.0'
+
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
+
 # Convert HTML and HTML+Erb to Haml.
 gem 'html2haml'
 
