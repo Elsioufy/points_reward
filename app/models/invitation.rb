@@ -10,8 +10,11 @@ class Invitation < ApplicationRecord
   # validates email to be present and unique, invitations can not be sent twice to the same person, only once.
   # The email at which invitation sent to
   validates :email, presence: true, uniqueness: true
+  # validates email to have an email format
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   # The inviter user who initiated the invitation.
   belongs_to :inviter_user, class_name: "User"
+  validates :inviter_user, presence: true
   # Validate in case the user invited is already in the system
   validate :user_already_found
   private
