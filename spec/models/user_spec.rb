@@ -33,7 +33,7 @@ describe User, type: :model do
       expect(build :user, password: '').not_to be_valid
     end
   end
-  context 'Email, Name and password are valid' do
+  context 'User attributes are valid' do
     it 'should save the user' do
       expect(build(:user)).to be_valid
       expect{create(:user)}.to change { User.count }.by(1)
