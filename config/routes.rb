@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   # Adding and creating new invitation route
   resources :invitations, only: [:new, :create]
   # getting users scores route
-  resources :users, only: [:scores] do
+  resources :users, only: [:import, :scores] do
     collection do
       get 'scores'
+      post 'import'
     end
   end
   # Root app to dashboard controller action index

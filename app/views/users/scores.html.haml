@@ -1,0 +1,7 @@
+= form_tag({action: :import}, multipart: true) do
+  .form-group.required
+    = label_tag :file, {class: "control-label"}
+    = file_field_tag 'file'
+  .form-actions.clearfix.m-t-lg
+    .pull-right
+      = submit_tag 'Send', class: 'btn btn-primary'
