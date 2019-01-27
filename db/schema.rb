@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_233407) do
+ActiveRecord::Schema.define(version: 2019_01_27_004657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_233407) do
 
   create_table "merit_score_points", force: :cascade do |t|
     t.bigint "score_id"
-    t.integer "num_points", default: 0
+    t.decimal "num_points", precision: 9, scale: 4, default: "0.0"
     t.string "log"
     t.datetime "created_at"
     t.index ["score_id"], name: "index_merit_score_points_on_score_id"
