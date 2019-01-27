@@ -1,7 +1,7 @@
 # Our application controller, triggered in every action we do.
 class ApplicationController < ActionController::Base
   # Always authenticate user before any action
-  before_action :authenticate_user!, except: [:scores, :import]
+  before_action :authenticate_user!, except: [:new_import, :import]
   before_action :configure_permitted_parameters, if:  :devise_controller?
   protected
     # This is used to permit sending name attribute in sign up form
