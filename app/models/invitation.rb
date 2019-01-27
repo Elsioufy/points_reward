@@ -1,6 +1,18 @@
+# This is used than devise_invitable as devise_invitable does not allow sending multiple invites to same person.
+# and if used it updates the invite token thus removing all old invitations which does not cope with the fact
+# that we want to accept first invitation sent instead.
+# Devise_invitable also has callback issues with observers.
+# Invitation class
+# Fields:
+#  email: string
+#  inviter_user:  User
 class Invitation < ApplicationRecord
+  # validates email to be present and unique, invitations can not be sent twice to the same person, only once.
+  # The email at which invitation sent to
   validates :email, presence: true, uniqueness: true
+  # The inviter user who initiated the invitation.
   belongs_to :inviter_user, class_name: "User"
+  # Validate in case the user invited is already in the system
   validate :user_already_found
   private
     def user_already_found
