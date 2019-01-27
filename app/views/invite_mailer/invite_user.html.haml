@@ -1,0 +1,5 @@
+%p
+  Hello #{@invitation.email}!
+%p Mr #{@invitation.inviter_user_name} has invited you to join clark through this below link
+
+%p= link_to 'Sign up here', new_user_registration_url

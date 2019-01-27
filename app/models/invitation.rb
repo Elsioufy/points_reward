@@ -17,6 +17,10 @@ class Invitation < ApplicationRecord
   validates :inviter_user, presence: true
   # Validate in case the user invited is already in the system
   validate :user_already_found
+  # Delegate name to inviter user
+  delegate :name, to: :inviter_user, prefix: true, allow_nil: true
+  # Delegate emal to inviter user
+  delegate :email, to: :inviter_user, prefix: true, allow_nil: true
   private
     def user_already_found
       if User.find_by(email: self.email).present?
