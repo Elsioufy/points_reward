@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find(params[:id])
+  def scores
+    render json: UserPresenter.users_scores_to_hash
   end
 end
