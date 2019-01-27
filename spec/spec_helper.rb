@@ -28,6 +28,11 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
+  # Disable all observers while doing rspec
+  config.before do
+    ActiveRecord::Base.observers.disable :all
+  end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
