@@ -88,6 +88,8 @@ group :test do
   gem 'chromedriver-helper'
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing
   gem 'database_cleaner'
+  # Brings back `assigns` and `assert_template` to your Rails tests
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
