@@ -14,4 +14,10 @@ class UserService
       compute_points
     end
   end
+
+  def update_users_tree
+    if @user.parent.present?
+      @user.children.update_all(parent_id: @user.parent_id)
+    end
+  end
 end

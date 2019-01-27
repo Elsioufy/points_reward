@@ -11,4 +11,9 @@ class UserObserver < ActiveRecord::Observer
     user_service = UserService.new(user)
     user_service.compute_points
   end
+
+  def before_destroy(user)
+    user_service = UserService.new(user)
+    user_service.update_users_tree
+  end
 end
