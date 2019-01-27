@@ -4,7 +4,11 @@ class UserRepository
     @model = user_model
   end
   # Gets the invitation of a specific user
-  def get_users(user_names)
-    @model.where(name: user_names).order(:name)
+  def get_users(names)
+    @model.where(name: names).order(:name)
+  end
+
+  def get_user(name)
+    @model.find_by(name: name)
   end
 end

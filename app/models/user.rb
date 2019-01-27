@@ -8,6 +8,7 @@
 #  merit attributes
 class User < ApplicationRecord
   # This is used to compute score points for the inviters, each user has it
+  require 'reward_text_parser'
   has_merit
 
   # Include default devise modules. Others available are:
@@ -21,13 +22,18 @@ class User < ApplicationRecord
   belongs_to :parent, class_name: 'User', optional: true
   has_many :children, class_name: 'User', foreign_key: 'parent_id'
 
-  def self.import(file_path)
-    csv_text = File.read(file_path)
-    user_names = CSV.parse(csv_text)[0]
+  def self.get_scores(file_path)
+    sorted_actions = RewardTextParser.import(file_path)
+    if sorted_actions.has_key?(:errors)
+      sorted_actions
+    else
+      UserService.compute_get_scores(sorted_actions)
+    end
   end
   protected
-    # Ignore confirmation in case our environment is in development or testing.
+    # Ignore confirmation.
     def confirmation_required?
-      !%w(development test).include? Rails.env
+      return false
+      # !%w(development test staging product).include? Rails.env
     end
 end

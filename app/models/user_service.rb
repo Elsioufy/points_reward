@@ -31,4 +31,46 @@ class UserService
       @user.children.update_all(parent_id: @user.parent_id)
     end
   end
+
+  def self.compute_get_scores(sorted_actions)
+    @users = []
+    sorted_actions_data = sorted_actions[:data]
+    user_repository = UserRepository.new(User)
+    sorted_actions_data.each do |action_hash|
+      self.send("#{action_hash[:action]}_user", action_hash[:from_user], action_hash[:to_user], user_repository)
+    end
+    @users = @users.uniq.reject(&:blank?)
+    UserPresenter.users_scores_to_hash(@users)
+  end
+  private
+    def self.invite_user(from_name, to_name, user_repository)
+      from_user = user_repository.get_user(from_name)
+      if from_user.blank?
+        email = "clark.#{from_name.downcase}clark@clark.com"
+        from_user_ent = UserEntity.new(from_name, email, (Faker::Internet.password 8,10))
+        from_user_ent.save!
+        from_user = from_user_ent.get_user
+      end
+      to_user = user_repository.get_user(to_name)
+      if to_user.blank?
+        email = "clark.#{to_name.downcase}clark@clark.com"
+        invitation = InvitationEntity.new(email, from_user)
+        begin
+          invitation.save!
+        rescue ActiveRecord::RecordInvalid => invalid
+        end
+      end
+      @users << from_user
+    end
+
+    def self.accepts_user(from_name, to_name, user_repository)
+      from_user = user_repository.get_user(from_name)
+      if from_user.blank?
+        email = "clark.#{from_name.downcase}clark@clark.com"
+        from_user_ent = UserEntity.new(from_name, email, (Faker::Internet.password 8,10))
+        from_user_ent.save!
+        from_user = from_user_ent.get_user
+        @users << from_user.parent
+      end
+    end
 end

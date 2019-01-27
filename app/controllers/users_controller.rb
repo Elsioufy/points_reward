@@ -8,10 +8,7 @@ class UsersController < ApplicationController
   # POST /users/import
   # This import list of user names to get their scores
   def import
-    user_names = User.import(params[:file].path)
-    ur = UserRepository.new(User)
-    users = ur.get_users(user_names)
-    results = UserPresenter.users_scores_to_hash(users)
+    results = User.get_scores(params[:file].path)
     render json: results
   end
 end
