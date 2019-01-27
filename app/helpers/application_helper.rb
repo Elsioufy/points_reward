@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # This is used to render errors in the view in case of validation
   def form_errors(resource)
     return if resource.errors.empty?
 

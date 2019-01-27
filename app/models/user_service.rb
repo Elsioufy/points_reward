@@ -32,20 +32,26 @@ class UserService
     end
   end
 
+  # This method gets scores based on actions/rules uploaded
   def self.compute_get_scores(sorted_actions)
     @users = []
     sorted_actions_data = sorted_actions[:data]
     user_repository = UserRepository.new(User)
     sorted_actions_data.each do |action_hash|
-      self.send("#{action_hash[:action]}_user", action_hash[:from_user], action_hash[:to_user], user_repository)
+      self.send("#{action_hash[:action]}_user",user_repository, action_hash[:from_user], action_hash[:to_user])
     end
     @users = @users.uniq.reject(&:blank?)
     UserPresenter.users_scores_to_hash(@users)
   end
   private
-    def self.invite_user(from_name, to_name, user_repository)
+    # Inviters a user service, takes:
+    # user_repositry: UserRepository model at which we can get the user model from name
+    # from_name:  string
+    # to_name: string
+    def self.invite_user(user_repository, from_name, to_name)
       from_user = user_repository.get_user(from_name)
       if from_user.blank?
+        # Bypass email validation by creating email from name.
         email = "clark.#{from_name.downcase}clark@clark.com"
         from_user_ent = UserEntity.new(from_name, email, (Faker::Internet.password 8,10))
         from_user_ent.save!
@@ -63,7 +69,11 @@ class UserService
       @users << from_user
     end
 
-    def self.accepts_user(from_name, to_name, user_repository)
+    # Inviters a user service, takes:
+    # user_repositry: UserRepository model at which we can get the user model from name
+    # from_name:  string
+    # to_name: string (mostly nil) since accepts, accept from single user on single invitation in the system.
+    def self.accepts_user(user_repository, from_name, to_name=nil)
       from_user = user_repository.get_user(from_name)
       if from_user.blank?
         email = "clark.#{from_name.downcase}clark@clark.com"
