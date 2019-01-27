@@ -1,16 +1,16 @@
 # User Service class, contain methods that deals with entities (users)
 class UserService
   # class instance variables
-  # Category is used to categorize points under a specific static name
-  @category = 'Recommend points'
-  # This is the main equation at which computes the scores per user
-  @eq = 0.5
   # Initialize a user service
   # user [Entity/Model]
   # Default level number 0
   def initialize(user)
     @user = user
     @level = 0
+    # Category is used to categorize points under a specific static name
+    @category = 'Recommend points'
+    # This is the main equation at which computes the scores per user
+    @eq = 0.5
   end
   # Computes the points of the inviters given the invitee joined.
   def compute_points
