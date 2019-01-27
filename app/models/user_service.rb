@@ -1,10 +1,9 @@
 class UserService
-
+  @category = 'Recommend points'
+  @eq = 0.5
   def initialize(user)
     @user = user
     @level = 0
-    @eq = 0.5
-    @category = 'Recommend points'
   end
 
   def compute_points
