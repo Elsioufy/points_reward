@@ -1,6 +1,5 @@
 # Our User Conroller, used to get users scores, ..etc
 class UsersController < ApplicationController
-  require 'csv'
   # GET /users/scores
   # This action is used to get users scores based on import
   def new_import
