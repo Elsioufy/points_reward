@@ -1,5 +1,5 @@
+# This a library class that is used to import users actions file and prepares them
 class RewardTextParser
-
   def self.import(file_path)
     begin
       text = File.read(file_path)
