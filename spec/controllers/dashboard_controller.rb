@@ -8,7 +8,7 @@ describe InvitationsController, type: :controller do
     end
     describe "GET new" do
       it "has a 200 status code" do
-        get :indexs
+        get :index
         expect(response.status).to eq(200)
       end
     end
