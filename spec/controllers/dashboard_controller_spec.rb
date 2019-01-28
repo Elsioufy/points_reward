@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe InvitationsController, type: :controller do
+describe DashboardController, type: :controller do
   context 'User signed in' do
     before :each do
       @me = create :user
