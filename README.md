@@ -4,9 +4,9 @@ Clarkreward is used to calculate score points based on users recommendations to 
 
 This is a application system that has two main features:
 
-* Real time architecture at which users can login, register, invite other users and within this architecture, it can calculate score points internally. found at localhost:3000
+* Real time architecture at which users can login, register, invite other users and within this architecture, it can calculate score points internally. found at `localhost:3000`
 
-* A separate test url (connected to the architecture above) at which we can upload a text file and computes our score points directly, url found at: localhost:3000/users/new_import
+* A separate test url (connected to the architecture above) at which we can upload a text file and computes our score points directly, url found at: `localhost:3000/users/new_import`
 
 ## This project is using the following configuration:
 
