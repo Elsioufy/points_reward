@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   # This import list of user names to get their scores
   def import
     results = User.get_scores(params[:file].path)
-    render json: results
+    if results.has_key?(:errors)
+      render json: results, status: -1
+    else
+      render json: results, status: 0
+    end
   end
 end
