@@ -33,6 +33,11 @@ RSpec.configure do |config|
     ActiveRecord::Base.observers.disable :all
   end
 
+  # Enable feature observers
+  config.before(type: :feature) do
+    ActiveRecord::Base.observers.enable :all
+  end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
