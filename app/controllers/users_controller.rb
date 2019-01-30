@@ -9,9 +9,9 @@ class UsersController < ApplicationController
   def import
     results = User.get_scores(params[:file].path)
     if results.has_key?(:errors)
-      render json: results, status: -1
+      render json: results, status: 422
     else
-      render json: results, status: 0
+      render json: results, status: 200
     end
   end
 end
