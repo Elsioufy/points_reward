@@ -7,5 +7,6 @@
         %i.fa.fa-align-justify
   .collapse.navbar-collapse#navbar_content
     %ul.nav.navbar-nav.navbar-right
-      %li.nav-item.dropdown
-        = link_to('Logout', destroy_user_session_path, method: :delete , class: 'btn btn-primary')
+      - if user_signed_in?
+        %li.nav-item.dropdown
+          = link_to(t('user.logout'), destroy_user_session_path, method: :delete , class: 'btn btn-primary')

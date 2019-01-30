@@ -25,7 +25,7 @@ class Invitation < ApplicationRecord
     # Checks if user already in the system so we can not invite him back.
     def user_already_found
       if User.find_by(email: self.email).present?
-        errors.add(:email, 'User already registered')
+        errors.add(:email, I18n.t('invitation.user_registered'))
         return false
       end
     end

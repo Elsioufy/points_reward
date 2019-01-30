@@ -13,7 +13,7 @@ class InvitationsController < ApplicationController
     @invitation.inviter_user = current_user
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to root_path, notice: 'User successfully invited' }
+        format.html { redirect_to root_path, notice: t('invitation.success') }
       else
         format.html { render :new }
       end

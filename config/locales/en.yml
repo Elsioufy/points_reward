@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  invitation:
+    success: "User successfully invited"
+    invite_new_user: "Invite a new user"
+    user_registered: 'User already registered'
+  user:
+    logout: "Logout"
+
