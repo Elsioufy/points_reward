@@ -32,6 +32,9 @@ gem 'sassc-rails', '>= 2.0.0'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
 
+# the font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
+
 # Convert HTML and HTML+Erb to Haml.
 gem 'html2haml'
 
