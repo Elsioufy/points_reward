@@ -13,7 +13,7 @@ describe UsersController, type: :controller do
         path = 'spec/fixtures/sample_input_data.txt'
         params = { "file" => Rack::Test::UploadedFile.new(path, 'application/text', true) }
         post :import, params: params
-        expect(response.status).to eq(0)
+        expect(response.status).to eq(200)
       end
     end
     context "File is irrelevant or buggy" do
@@ -21,7 +21,7 @@ describe UsersController, type: :controller do
         path = 'spec/fixtures/buggy_input_data.txt'
         params = { "file" => Rack::Test::UploadedFile.new(path, 'application/text', true) }
         post :import, params: params
-        expect(response.status).to eq(-1)
+        expect(response.status).to eq(422)
       end
     end
   end
