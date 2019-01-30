@@ -37,4 +37,5 @@ en:
     user_registered: 'User already registered'
   user:
     logout: "Logout"
+  parsing_error: "Error parsing file, make sure info is correct"
 

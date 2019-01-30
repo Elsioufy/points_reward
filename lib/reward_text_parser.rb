@@ -18,12 +18,12 @@ class RewardTextParser
           action_arr = action_str.split(' accepts')
           sorted_actions << {datetime: parsed_datetime, action: 'accepts', from_user: action_arr[0]}
         else
-          errors << "Error parsing file, make sure info is correct"
+          errors << I18n.t('parsing_error')
           break
         end
       end
     rescue => e
-      errors << "Error parsing file, make sure info is correct"
+      errors << I18n.t('parsing_error')
     end
     if errors.present?
       return {errors: errors}
