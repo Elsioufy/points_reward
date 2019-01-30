@@ -1,0 +1,27 @@
+ul {
+  list-style-type: none;
+}
+
+.navbar-header{
+  margin-left:5px;
+  width:100%;
+}
+
+
+.navbar-clarkapp {
+  background: $light_blue;
+}
+
+.navbar-clarkapp {
+  .navbar-nav {
+    li>a {
+      color: white;
+      &:hover, &:focus {
+        background: $dark_blue;
+      }
+    }
+    li.active>a, li.open>a {
+      background: $dark_blue;
+    }
+  }
+}

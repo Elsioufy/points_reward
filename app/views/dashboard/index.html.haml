@@ -1,4 +1,8 @@
-%h2
-  Hello #{current_user.name}
+#all
+  #content
+    .container
+      .body
+        %h2
+          Hello #{current_user.name}
 
-= link_to "Invite", new_invitation_path
+        = link_to "Invite a new user", new_invitation_path, class: 'btn btn-primary'
