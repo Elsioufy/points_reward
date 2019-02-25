@@ -16,7 +16,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :sendmail
 
-  config.action_mailer.default_url_options = { host: 'clarkreward', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'points_reward', port: 3000 }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -65,7 +65,6 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "clarkreward_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 

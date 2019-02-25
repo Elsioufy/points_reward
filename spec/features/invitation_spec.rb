@@ -17,7 +17,7 @@ feature Invitation, :type => :feature do
     end
     scenario 'creates a new invitation successfully' do
       visit new_invitation_path
-      fill_in :invitation_email, with: 'test@clark.com'
+      fill_in :invitation_email, with: 'test@points_reward.com'
       click_on 'Send'
       expect(current_path).to eq root_path
       page.should have_selector ".alert-info", text: "User successfully invited"

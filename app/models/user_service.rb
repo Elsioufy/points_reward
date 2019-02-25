@@ -52,14 +52,14 @@ class UserService
       from_user = user_repository.get_user(from_name)
       if from_user.blank?
         # Bypass email validation by creating email from name.
-        email = "clark.#{from_name.downcase}clark@clark.com"
+        email = "points_reward.#{from_name.downcase}points_reward@points_reward.com"
         from_user_ent = UserEntity.new(from_name, email, (Faker::Internet.password 8,10))
         from_user_ent.save!
         from_user = from_user_ent.get_user
       end
       to_user = user_repository.get_user(to_name)
       if to_user.blank?
-        email = "clark.#{to_name.downcase}clark@clark.com"
+        email = "points_reward.#{to_name.downcase}points_reward@points_reward.com"
         invitation = InvitationEntity.new(email, from_user)
         begin
           invitation.save!
@@ -76,7 +76,7 @@ class UserService
     def self.accepts_user(user_repository, from_name, to_name=nil)
       from_user = user_repository.get_user(from_name)
       if from_user.blank?
-        email = "clark.#{from_name.downcase}clark@clark.com"
+        email = "points_reward.#{from_name.downcase}points_reward@points_reward.com"
         from_user_ent = UserEntity.new(from_name, email, (Faker::Internet.password 8,10))
         from_user_ent.save!
         from_user = from_user_ent.get_user

@@ -1,6 +1,6 @@
-## Clarkreward
+## Points Reward
 
-Clarkreward is used to calculate score points based on users recommendations to others.
+Points Reward is used to calculate score points based on users recommendations to others.
 
 This is a application system that has two main features:
 
@@ -17,7 +17,7 @@ This is a application system that has two main features:
 * Postgres database
 
 
-## The steps to use clarkreward:
+## The steps to use Points Reward:
 
 * clone project
 

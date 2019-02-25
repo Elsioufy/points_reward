@@ -26,7 +26,7 @@ default: &default
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: clarkreward
+  #username: points_reward
 
   # The password associated with the postgres role (username).
   #password:
@@ -75,12 +75,12 @@ default: &default
 
 staging:
   <<: *default
-  database: clarkreward_staging
-  username: clarkreward
-  password: <%= ENV['CLARKREWARD_DATABASE_PASSWORD'] %>
+  database: points_reward_staging
+  username: points_reward
+  password: <%= ENV['points_reward_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
-  database: clarkreward_production
-  username: clarkreward
-  password: <%= ENV['CLARKREWARD_DATABASE_PASSWORD'] %>
+  database: points_reward_production
+  username: points_reward
+  password: <%= ENV['points_reward_DATABASE_PASSWORD'] %>

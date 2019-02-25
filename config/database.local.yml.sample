@@ -1,15 +1,15 @@
 development:
   <<: *default
-  database: clarkreward_development
-  username: clarkreward
+  database: points_reward_development
+  username: points_reward
   password: xe#x9Zq}<F
   host: localhost
   pool: 15
 
 test:
   <<: *default
-  database: clarkreward_test
-  username: clarkreward
+  database: points_reward_test
+  username: points_reward
   password: xe#x9Zq}<F
   host: localhost
   pool: 15
