@@ -38,6 +38,9 @@ gem "font-awesome-rails"
 # Convert HTML and HTML+Erb to Haml.
 gem 'html2haml'
 
+# To rename rails application
+gem 'rename'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
